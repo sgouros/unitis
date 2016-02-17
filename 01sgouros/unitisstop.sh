@@ -1,4 +1,4 @@
-cd ~/ember/code/library-app/
+cd ~/ember/code/unitis/
 echo -n "1. git status\n"
 git status -s
 echo -n "2. git add .\n"

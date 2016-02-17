@@ -1,0 +1,36 @@
+nvm ls-remote
+nvm install 5.6.0
+nvm alias default 5.6.0
+npm install -g ember-cli
+npm install -g bower
+npm cache clean
+npm install -g ember-cli@2.3.0
+ember -v
+κάνω τον φάκελο στο github
+cd code
+ember new unitis
+cd unitis
+αντιγράφω το 01sgouros  και το .gitignore και το styles/app.scss σβήνω το app.css
+npm install
+bower install
+ember s
+git status
+git add .
+git commit -m "initial commit"
+git remote add origin git@github.com:sgouros/unitis.git
+git push -u origin master
+ustart
+όταν ανοίγει το webstorm  παω settings
+  απενεργοποιώ το vcs background
+  βάζω τους φακέλους στα favorites
+  ./config/environment.js  αφαιρώ τα comments εκτός από το πρώτο
+ember install ember-cli-sass
+ember install ember-cli-bootstrap-sassy
+στο package.json προσθέτω "ember-cli-bootstrap-sassy": "0.5.1",
+στο bower.json προσθέτω "bootstrap-sass": "^3.3.6"
+npm install
+bower install
+ember g template navbar και αντιγράφω σε αυτό και στο application.hbs
+ember g component nav-link-to και γεμίζω τόσο το js όσο και το hbs
+ember g route contact
+ember g route about

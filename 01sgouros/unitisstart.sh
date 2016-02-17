@@ -1,5 +1,5 @@
 DATE="$(date +"%Y.%b.%d_%H.%M")"
-MYAPP="unity"
+MYAPP="unitis"
 
 echo -n "1. deleting tmp files...\n"
 rm -rf ~/ember/code/$MYAPP/tmp/*
