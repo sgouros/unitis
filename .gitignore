@@ -3,6 +3,7 @@
 # compiled output
 /dist
 /tmp
+*~
 
 # dependencies
 /node_modules
@@ -15,3 +16,16 @@
 /libpeerconnection.log
 npm-debug.log
 testem.log
+.idea
+
+
+Thumbs.db
+
+/common-tmp
+/docs/build
+.node_modules-tmp
+.bower_components-tmp
+/coverage
+
+
+
