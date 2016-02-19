@@ -1,0 +1,14 @@
+<h1>collective decisions</h1>
+
+<div class="well">
+  <ul class="nav nav-pills">
+    {{#link-to 'collective-decisions.index' tagName="li"}} <a href>list all</a>    {{/link-to}}
+    {{#link-to 'collective-decisions.new'   tagName="li"}} <a href>add new </a>    {{/link-to}}
+  </ul>
+</div>
+
+{{#if responseMessage}}
+  <div class="alert alert-success">{{responseMessage}}</div>
+{{/if}}
+
+{{outlet}}

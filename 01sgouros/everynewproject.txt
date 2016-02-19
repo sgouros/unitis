@@ -30,7 +30,35 @@ ember install ember-cli-bootstrap-sassy
 στο bower.json προσθέτω "bootstrap-sass": "^3.3.6"
 npm install
 bower install
+
 ember g template navbar και αντιγράφω σε αυτό και στο application.hbs
 ember g component nav-link-to και γεμίζω τόσο το js όσο και το hbs
 ember g route contact
 ember g route about
+
+ember g route collective-decisions/index
+ember g route collective-decisions/new
+ember g route collective-decisions/edit
+
+και κάνω μέσα στον router μου να είναι όπως παρακάτω
+
+  this.route('collective-decisions', function() {
+      this.route('index');
+      this.route('new');
+      this.route('edit', {path:'/:collective-decisions-id/edit'});
+    });
+
+ember g model project code:string title:string
+ember g model collective-decision
+
+βάζω μέσα στα models τα properties τους καθώς και τα relations τους
+
+ember install emberfire
+δημιουργώ μια ΒΔ στο dashboard του firebase
+προσθέτω μέσα στο /config/environment.js:
+  contentSecurityPolicy: {
+            'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com"
+        },
+  firebase: 'https://WRITE_HERE_YOUR_APP_NAME.firebaseio.com/',
+
+
