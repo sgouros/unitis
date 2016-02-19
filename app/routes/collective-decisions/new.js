@@ -8,7 +8,7 @@ export default Ember.Route.extend({
 
   setupController: function (controller, model) {
     this._super(controller, model);
-    controller.set('title', 'Create a new collective-decision');
+    controller.set('title', 'Create a new collective decision');
     controller.set('buttonLabel', 'Create');
   },
 
