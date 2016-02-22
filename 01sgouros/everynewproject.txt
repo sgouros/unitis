@@ -31,6 +31,9 @@ ember install ember-cli-bootstrap-sassy
 npm install
 bower install
 
+μέσα στο .ember-cli προσθέτω "usePods": true
+μέσα στο config/environment.js  προσθέτω podModulePrefix: '/unitis/pods'
+
 ember g template navbar και αντιγράφω σε αυτό και στο application.hbs
 ember g component nav-link-to και γεμίζω τόσο το js όσο και το hbs
 ember g route contact

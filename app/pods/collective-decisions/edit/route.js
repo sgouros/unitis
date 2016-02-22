@@ -6,19 +6,11 @@ export default Ember.Route.extend({
     return this.store.findRecord('collective-decision', params.collective_decision_id);
   },
 
-  setupController: function (controller, model) {
-    this._super(controller, model);
-    controller.set('title', 'Edit a collective decision');
-    controller.set('buttonLabel', 'Save changes');
-  },
-
-  renderTemplate() {
-    this.render('collective-decisions/form');
-  },
-
+// TODO να έχει και ένα κουμπί cancel
+// TODO να εμφανίζει μήνυμα επιτυχίας αν κάνεις επιτυχώς edit
   actions: {
 
-    saveCollectiveDecision(library) {
+     saveCollectiveDecision(library) {
       library.save().then(() => this.transitionTo('collective-decisions'));
     },
 
@@ -37,8 +29,5 @@ export default Ember.Route.extend({
       }
     }
   }
+
 });
-
-
-// TODO να έχει και ένα κουμπί cancel
-// TODO να εμφανίζει μήνυμα επιτυχίας αν κάνεις επιτυχώς edit

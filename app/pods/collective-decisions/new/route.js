@@ -6,15 +6,15 @@ export default Ember.Route.extend({
     return this.store.createRecord('collective-decision');
   },
 
-  setupController: function (controller, model) {
-    this._super(controller, model);
-    controller.set('title', 'Create a new collective decision');
-    controller.set('buttonLabel', 'Create');
-  },
-
-  renderTemplate() {
-    this.render('collective-decisions/form');
-  },
+  //setupController: function (controller, model) {
+  //  this._super(controller, model);
+  //  controller.set('title', 'Create a new collective decision');
+  //  controller.set('buttonLabel', 'Create');
+  //},
+  //
+  //renderTemplate() {
+  //  this.render('collective-decisions/form');
+  //},
 
   actions: {
     saveCollectiveDecision: function (newCollectiveDecision) {
@@ -41,4 +41,5 @@ export default Ember.Route.extend({
     } // willTransition
 
   }// actions
+
 });
