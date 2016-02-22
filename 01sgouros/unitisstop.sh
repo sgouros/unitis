@@ -4,7 +4,7 @@ git status -s
 echo -n "2. git add .\n"
 git add .
 echo -n "3. git commit\n"
-git commit -m '$1'
+git commit -m $1
 echo -n "4. git push origin master\n"
 git push origin master
 
