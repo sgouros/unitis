@@ -3,17 +3,16 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 
   model(params) {
-    return this.store.findRecord('collective-decision', params.collective_decision_id);
+    return this.store.findRecord('project', params.project_id);
   },
 
   actions: {
 
+    saveProject(pr) {
 
-    saveCollectiveDecision(cd) {
-
-      cd.save().then(() => {
-        this.controllerFor('collective-decisions').set('responseMessage', 'Collective decision successfully edited!');
-        this.transitionTo('collective-decisions');
+      pr.save().then(() => {
+        this.controllerFor('projects').set('responseMessage', 'Project decision successfully edited!');
+        this.transitionTo('projects');
       });
 
     },
@@ -29,7 +28,7 @@ export default Ember.Route.extend({
 
         if (confirmation) {
           model.rollbackAttributes();
-          this.controllerFor('collective-decisions').set('responseMessage', '');
+          this.controllerFor('projects').set('responseMessage', '');
         }
         else {
           transition.abort();
@@ -42,6 +41,6 @@ export default Ember.Route.extend({
   }
 
   // TODO να έχει και ένα κουμπί cancel
-  // TODO να εμφανίζει μήνυμα επιτυχίας αν κάνεις επιτυχώς edit
+
 
 });

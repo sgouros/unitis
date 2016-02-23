@@ -3,17 +3,17 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 
   model: function () {
-    return this.store.createRecord('collective-decision');
+    return this.store.createRecord('project');
   },
 
   actions: {
 
 
-    saveCollectiveDecision(cd) {
+    saveProject(pr) {
 
-      cd.save().then(() => {
-        this.controllerFor('collective-decisions').set('responseMessage', 'Collective decision successfully added!');
-        this.transitionTo('collective-decisions');
+      pr.save().then(() => {
+        this.controllerFor('projects').set('responseMessage', 'Project successfully added!');
+        this.transitionTo('projects');
       });
 
     },

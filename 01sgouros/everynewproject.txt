@@ -34,10 +34,17 @@ bower install
 μέσα στο .ember-cli προσθέτω "usePods": true
 μέσα στο config/environment.js  προσθέτω podModulePrefix: '/unitis/pods'
 
+ember install emberfire
+δημιουργώ μια ΒΔ στο dashboard του firebase
+προσθέτω μέσα στο /config/environment.js:
+  contentSecurityPolicy: {
+            'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com"
+        },
+  firebase: 'https://WRITE_HERE_YOUR_APP_NAME.firebaseio.com/',
+
+
 ember g template navbar και αντιγράφω σε αυτό και στο application.hbs
 ember g component nav-link-to και γεμίζω τόσο το js όσο και το hbs
-ember g route contact
-ember g route about
 
 ember g route collective-decisions/index
 ember g route collective-decisions/new
@@ -48,20 +55,41 @@ ember g route collective-decisions/edit
   this.route('collective-decisions', function() {
       this.route('index');
       this.route('new');
-      this.route('edit', {path:'/:collective-decisions-id/edit'});
+      this.route('edit', {path:'/:collective_decision_id/edit'});
     });
 
-ember g model project code:string title:string
-ember g model collective-decision
+ember g model project code:string title:string -p
+ember g model collective-decision -p
 
 βάζω μέσα στα models τα properties τους καθώς και τα relations τους
+π.χ.
+ title: DS.attr('string'),
 
-ember install emberfire
-δημιουργώ μια ΒΔ στο dashboard του firebase
-προσθέτω μέσα στο /config/environment.js:
-  contentSecurityPolicy: {
-            'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com"
-        },
-  firebase: 'https://WRITE_HERE_YOUR_APP_NAME.firebaseio.com/',
+ projects:    DS.hasMany()
+ collectiveDecision: DS.belongsTo('collectiveDecision', {inverse: 'projects', async: true})
+
+------------------ CRUD projects --------------
+ember g projects
+ember g projects/index
+ember g projects/new
+ember g projects/edit
+
+στο router πρέπει να είναι
+  this.route('projects', function() {
+    this.route('index');
+    this.route('new');
+    this.route('edit', {path:'/:project_id/edit'});
+  });
+
+προσθέτω στο navbar.hbs
+{{#nav-link-to 'projects.index' }}projects{{/nav-link-to}}
+
+
+
+
+
+
+
+
 
 

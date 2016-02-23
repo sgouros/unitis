@@ -1,0 +1,14 @@
+<h2>έργα</h2>
+
+<div class="well">
+  <ul class="nav nav-pills">
+    {{#link-to 'projects.index' tagName="li"}} <a href>list all</a>    {{/link-to}}
+    {{#link-to 'projects.new'   tagName="li"}} <a href>add new </a>    {{/link-to}}
+  </ul>
+</div>
+
+{{#if responseMessage}}
+  <div class="alert alert-success">{{responseMessage}}</div>
+{{/if}}
+
+{{outlet}}
