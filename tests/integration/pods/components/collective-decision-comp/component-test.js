@@ -1,7 +1,7 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('collective-decision-comp', 'Integration | Component | collective decision comp', {
+moduleForComponent('collective-decision-item', 'Integration | Component | collective decision comp', {
   integration: true
 });
 

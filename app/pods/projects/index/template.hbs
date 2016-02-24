@@ -5,12 +5,12 @@
   {{#each model as |project|}}
     <div class="col-md-4">
 
-      {{#project-comp item=project}}
+      {{#project-item item=project}}
 
         {{#link-to 'projects.edit' project.id class='btn btn-success btn-xs'}}edit{{/link-to}}
         <button class="btn btn-danger btn-xs" {{action 'deleteProject' project}}>delete</button>
 
-      {{/project-comp}}
+      {{/project-item}}
 
     </div>
   {{/each}}

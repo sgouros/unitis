@@ -1,7 +1,7 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('project-form-comp', 'Integration | Component | project form comp', {
+moduleForComponent('project-form', 'Integration | Component | project form comp', {
   integration: true
 });
 

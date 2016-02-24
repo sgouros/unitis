@@ -9,7 +9,6 @@ export default Ember.Route.extend({
   actions: {
 
     saveProject(pr) {
-
       pr.save().then(() => {
         this.controllerFor('projects').set('responseMessage', 'Project decision successfully edited!');
         this.transitionTo('projects');
