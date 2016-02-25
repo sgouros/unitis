@@ -4,12 +4,13 @@
     <h3 class="panel-title">{{item.code}}</h3>
   </div>
 
+  {{#each item.collectiveDecision as |cd|}}
   <div class="panel-body">
     <p>{{item.title}}</p>
     <p>{{item.collectiveDecisionId}}</p>
-    <p>{{item.collectiveDecision.id}}</p>
+    <p>{{cd}}</p>
   </div>
-
+  {{/each}}
   <div class="panel-footer text-right">
     {{yield}}
   </div>
