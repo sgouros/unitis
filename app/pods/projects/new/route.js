@@ -1,13 +1,23 @@
+//  projects/new/route.js
+
 import Ember from 'ember';
 
 export default Ember.Route.extend({
 
-  model: function () {
-    return this.store.createRecord('project');
+  model() {
+    let newProject=this.store.createRecord('project');
+
+    let parentCollectiveDecision = this.store.findRecord('collective-decision',1).then((cd)=>{
+      console.log('--------------just retrieved collective decision with id:',cd.id);
+      newProject.collectiveDecision.pushObject(parentCollectiveDecision);
+    });
+
+
+
+    return newProject;
   },
 
   actions: {
-
 
     saveProject(pr) {
 
@@ -17,8 +27,6 @@ export default Ember.Route.extend({
       });
 
     },
-
-
 
 
     willTransition() { // αν φύγουμε από τη σελίδα χωρίς να γράψουμε τίποτε, κάνε reset

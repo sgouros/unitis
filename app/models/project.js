@@ -1,3 +1,5 @@
+// models/project.js
+
 import DS from 'ember-data';
 
 export default DS.Model.extend({
@@ -6,6 +8,6 @@ export default DS.Model.extend({
   title: DS.attr('string'),
   collectiveDecisionId: DS.attr('string'),
 
-  collectiveDecision: DS.belongsTo('collectiveDecision', {inverse: 'projects'})
+  collectiveDecision: DS.belongsTo('collective-decision', {async: true} )
 
 });
