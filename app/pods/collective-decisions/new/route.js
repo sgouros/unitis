@@ -8,8 +8,6 @@ export default Ember.Route.extend({
     return this.store.createRecord('collective-decision');
   },
 
-
-
   actions: {
 
     saveCollectiveDecision(cd) {
@@ -18,7 +16,6 @@ export default Ember.Route.extend({
       var promises = [];
 
       cd.save().then(function(collectiveDecision){
-
         collectiveDecision.get('projects').forEach(function(pr) {
           promises.push(pr.save());
         });
@@ -27,12 +24,7 @@ export default Ember.Route.extend({
           _this.transitionTo('collective-decisions');
         }).catch(function () { console.log('one of the saves failed'); });
 
-
-
       });
-
-
-
 
 
     },
