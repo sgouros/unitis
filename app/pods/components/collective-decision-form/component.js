@@ -15,10 +15,10 @@ export default Ember.Component.extend({
       console.log('-----------addProject called');
       this.sendAction('addProject', cd);
 
+      // TODO 07.03.2016 αυτό πιάνει στο new collective decision αλλά όχι στο edit collective decision
+
       }
 
     }
-
-
 
 });

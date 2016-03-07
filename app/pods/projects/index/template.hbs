@@ -2,13 +2,13 @@
 
 <div class="row">
 
-  {{#each model as |project|}}
+  {{#each model as |a_Project|}}
     <div class="col-md-4">
 
-      {{#project-item item=project par=project.collectiveDecision}}
+      {{#project-item i_Project=a_Project}}
 
-        {{#link-to 'projects.edit' project.id class='btn btn-success btn-xs'}}edit{{/link-to}}
-        <button class="btn btn-danger btn-xs" {{action 'deleteProject' project}}>delete</button>
+        {{#link-to 'projects.edit' a_Project.id class='btn btn-success btn-xs'}}edit{{/link-to}}
+        <button class="btn btn-danger btn-xs" {{action 'deleteProject' a_Project}}>delete</button>
 
       {{/project-item}}
 

@@ -5,7 +5,9 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 
   model() {
-    return this.store.createRecord('collective-decision');
+    let cd=this.store.createRecord('collective-decision');
+    cd.code='anew collective decisioncode';
+    return cd;
   },
 
   actions: {

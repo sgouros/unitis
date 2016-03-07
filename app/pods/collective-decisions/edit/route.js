@@ -8,7 +8,6 @@ export default Ember.Route.extend({
 
   actions: {
 
-
     saveCollectiveDecision(cd) {
 
       cd.save().then(() => {
@@ -17,7 +16,6 @@ export default Ember.Route.extend({
       });
 
     },
-
 
 
     willTransition(transition) {

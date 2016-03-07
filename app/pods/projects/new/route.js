@@ -9,10 +9,8 @@ export default Ember.Route.extend({
 
     let parentCollectiveDecision = this.store.findRecord('collective-decision',1).then((cd)=>{
       console.log('--------------just retrieved collective decision with id:',cd.id);
-      newProject.collectiveDecision.pushObject(parentCollectiveDecision);
+      newProject.collectiveDecision=parentCollectiveDecision;
     });
-
-
 
     return newProject;
   },

@@ -2,29 +2,21 @@
 
   <div class="form-group">
     <label class="col-sm-2 control-label">code</label>
-    <div class="col-sm-10">
-      {{input type="text" value=item.code class="form-control" placeholder="The serial code of the project"}}
-    </div>
+    <div class="col-sm-10">{{input type="text" value=f_Project.code class="form-control" placeholder="The serial code of the project"}} </div>
   </div>
 
   <div class="form-group">
     <label class="col-sm-2 control-label">title</label>
-    <div class="col-sm-10">
-      {{input type="text" value=item.title class="form-control" placeholder="The title of the project"}}
-    </div>
+    <div class="col-sm-10">{{input type="text" value=f_Project.title class="form-control" placeholder="The title of the project"}} </div>
   </div>
 
   <div class="form-group">
     <label class="col-sm-2 control-label">collective decision ID</label>
-    <div class="col-sm-10">
-      {{input type="text" value=item.collectiveDecisionId class="form-control" placeholder="The id of the parent collective decision"}}
-    </div>
+    <div class="col-sm-10">{{input type="text" value=f_Project.collectiveDecisionId class="form-control" placeholder="The id of the parent collective decision"}}    </div>
   </div>
 
   <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default" {{action 'buttonClicked' item}} disabled="{{unless item.isValid 'disabled'}}">
-        {{buttonLabel}}
+    <div class="col-sm-offset-2 col-sm-10"> <button type="submit" class="btn btn-default" {{action 'buttonClicked' f_Project}} disabled="{{unless f_Project.isValid 'disabled'}}"> {{buttonLabel}}
       </button>
     </div>
   </div>

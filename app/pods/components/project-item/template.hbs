@@ -1,16 +1,15 @@
 <div class="panel panel-default project">
 
   <div class="panel-heading">
-    <h3 class="panel-title">{{item.code}}</h3>
+    <h3 class="panel-title">{{i_Project.code}}</h3>
   </div>
 
-  {{#each item.collectiveDecision as |cd|}}
   <div class="panel-body">
-    <p>{{item.title}}</p>
-    <p>{{item.collectiveDecisionId}}</p>
-    <p>{{cd}}</p>
+    <p>{{i_Project.title}}</p>
+    <p>{{i_Project.collectiveDecisionId}}</p>
+    <p>{{i_Project.collectiveDecision}}</p>
   </div>
-  {{/each}}
+
   <div class="panel-footer text-right">
     {{yield}}
   </div>

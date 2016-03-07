@@ -6,7 +6,6 @@ export default DS.Model.extend({
 
   code: DS.attr('string'),
   title: DS.attr('string'),
-  collectiveDecisionId: DS.attr('string'),
 
   collectiveDecision: DS.belongsTo('collective-decision', {async: true} )
 
