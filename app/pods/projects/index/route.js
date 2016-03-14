@@ -22,7 +22,7 @@ export default Ember.Route.extend({
     willTransition() {
       this.controllerFor('projects').set('responseMessage', '');
     }
-
+  
   }
 
 });
