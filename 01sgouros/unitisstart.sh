@@ -9,10 +9,4 @@ echo -n "2. fetching application source from Github (git pull origin)...\n"
 	git pull origin
 
 echo -n "3. starting IDE...\n"
-	cd ~/WebStorm-143.1184.19/bin/
-	sh webstorm.sh
-
-
-
-
-
+	atom --dev

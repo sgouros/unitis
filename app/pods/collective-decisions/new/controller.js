@@ -1,23 +1,21 @@
 import Ember from 'ember';
-import
+import {i,w} from 'unitis/utils/ULogger';
+
 export default Ember.Controller.extend({
 
   actions: {
 
     addProject(collectiveDecision){
 
-      console.log('-----------got inside addProject of controller');
-
       console.log(collectiveDecision);
 
       let project = this.store.createRecord('project');
       project.code='a new project code';
 
-      console.log('-----------project just created');
-
-
+      i(this,'project just created');
+      
       if(!collectiveDecision.projects) {
-        console.log('-----------the cd has no projects');
+        i(this,'the cd has no projects');
         collectiveDecision.projects = [];
       }
 

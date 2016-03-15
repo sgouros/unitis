@@ -1,6 +1,6 @@
 import Ember from 'ember';
 import DS from 'ember-data';
-import {i,w} from 'unitis/utils/ULogger';
+import {d,i,w,e} from 'unitis/utils/ULogger';
 
 export default Ember.Component.extend({
 
@@ -11,15 +11,8 @@ export default Ember.Component.extend({
     },
 
     addProject(cd){
-
-     //Ember.Logger.i(this,'this is a message');
-     // console.log(L);
-      i(this,'logggg');
-      w(this,'logggg');
       this.sendAction('addProject', cd);
-
       // TODO 07.03.2016 αυτό πιάνει στο new collective decision αλλά όχι στο edit collective decision
-
       }
 
     }
