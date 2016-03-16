@@ -21,6 +21,6 @@ export default Ember.Controller.extend({
 
       // TODO αυτή τη στιγμή τα projects είναι promises. πρέπει να δω πως γίνεται να γίνονται resolved μεσω του rsvp
     }
-  }
 
+  }
 });

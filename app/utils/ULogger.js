@@ -1,7 +1,5 @@
 ///////////////   ULogger.js   //////////////
 
-import Ember from 'ember';
-
 function d(caller,message){
     let pre='%c';
     let loggerPrefix='[D]';
@@ -12,7 +10,7 @@ function d(caller,message){
     let outputFormat='color: blue; font-size:13px;';
 
     console.log(pre + loggerPrefix + currentDate + currentTime +  callerClass + ': ' + message, outputFormat);
-  };
+  }
 
 function i(caller,message){
     let pre='%c';
@@ -24,7 +22,7 @@ function i(caller,message){
     let outputFormat='color: green; font-size:11px;';
 
     console.log(pre + loggerPrefix + currentDate + currentTime +  callerClass + ': ' + message, outputFormat);
-  };
+  }
 
 function w(caller,message){
   let pre='%c';
@@ -36,7 +34,7 @@ function w(caller,message){
   let outputFormat='color: orange; font-size:11px;';
 
   console.log(pre + loggerPrefix + currentDate + currentTime +  callerClass + ': ' + message, outputFormat);
-};
+}
 
 function e(caller,message){
   let pre='%c';
@@ -48,7 +46,7 @@ function e(caller,message){
   let outputFormat='color: red; font-size:11px;';
 
   console.log(pre + loggerPrefix + currentDate + currentTime +  callerClass + ': ' + message, outputFormat);
-};
+}
 
 
 export {d,i,w,e};

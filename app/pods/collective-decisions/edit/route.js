@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import {d,i,w,e} from 'unitis/utils/ULogger';
 
 export default Ember.Route.extend({
 
@@ -8,6 +9,8 @@ export default Ember.Route.extend({
 
   actions: {
 
+
+  
     saveCollectiveDecision(cd) {
 
       cd.save().then(() => {
