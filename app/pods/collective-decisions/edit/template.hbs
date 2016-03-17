@@ -1,2 +1,8 @@
 <h2>editing a collective decision</h2>
-{{collective-decision-form f_CollectiveDecision=model buttonLabel='Save Collective Decision' action='saveCollectiveDecision'  addProject=(action 'addProject') }}
+{{collective-decision-form
+  f_CollectiveDecision=model
+  defaultButtonLabel='Edit Collective Decision'
+  addProjectButtonLabel='Add Project'
+  defaultAction=(action 'editCollectiveDecision')
+  addProjectAction=(action 'addProject')
+}}

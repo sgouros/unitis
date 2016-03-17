@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import {d,i,w,e} from 'unitis/utils/ULogger';
+import {debug,info,warn,error} from 'unitis/utils/ULogger';
 
 export default Ember.Route.extend({
 
@@ -9,20 +9,7 @@ export default Ember.Route.extend({
 
   actions: {
 
-
-  
-    saveCollectiveDecision(cd) {
-
-      cd.save().then(() => {
-        this.controllerFor('collective-decisions').set('responseMessage', 'Collective decision successfully edited!');
-        this.transitionTo('collective-decisions');
-      });
-
-    },
-
-
-    willTransition(transition) {
-
+      willTransition(transition) {
       let model = this.controller.get('model');
 
       if (model.get('hasDirtyAttributes')) {
@@ -35,14 +22,12 @@ export default Ember.Route.extend({
         else {
           transition.abort();
         }
-
       }
     }
 
-
   }
 
-  // TODO να έχει και ένα κουμπί cancel
-  // TODO να εμφανίζει μήνυμα επιτυχίας αν κάνεις επιτυχώς edit
+  // TODO -03-
+  // TODO -04-
 
 });

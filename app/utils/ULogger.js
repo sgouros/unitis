@@ -1,6 +1,6 @@
 ///////////////   ULogger.js   //////////////
 
-function d(caller,message){
+function debug(caller,message){
     let pre='%c';
     let loggerPrefix='[D]';
     let d = new Date();
@@ -12,7 +12,7 @@ function d(caller,message){
     console.log(pre + loggerPrefix + currentDate + currentTime +  callerClass + ': ' + message, outputFormat);
   }
 
-function i(caller,message){
+function info(caller,message){
     let pre='%c';
     let loggerPrefix='[I]';
     let d = new Date();
@@ -24,7 +24,7 @@ function i(caller,message){
     console.log(pre + loggerPrefix + currentDate + currentTime +  callerClass + ': ' + message, outputFormat);
   }
 
-function w(caller,message){
+function warn(caller,message){
   let pre='%c';
   let loggerPrefix='[W]';
   let d = new Date();
@@ -36,7 +36,7 @@ function w(caller,message){
   console.log(pre + loggerPrefix + currentDate + currentTime +  callerClass + ': ' + message, outputFormat);
 }
 
-function e(caller,message){
+function error(caller,message){
   let pre='%c';
   let loggerPrefix='[E]';
   let d = new Date();
@@ -49,4 +49,4 @@ function e(caller,message){
 }
 
 
-export {d,i,w,e};
+export {debug,info,warn,error};

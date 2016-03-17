@@ -1,26 +1,53 @@
 import Ember from 'ember';
-import {d,i,w,e} from 'unitis/utils/ULogger';
+import {
+  debug,
+  info,
+  warn,
+  error
+} from 'unitis/utils/ULogger';
 
 export default Ember.Controller.extend({
+
   actions: {
 
-    addProject(collectiveDecision) { // TODO πρέπει να δω αν θελω να το πιανω εδώ ή στη route
-
+    addProject(collectiveDecision) {
       let new_project = this.store.createRecord('project');
 
       new_project.code = 'default project code';
 
-      i(this, 'project just created');
+      info(this, 'project just created');
 
       if (!collectiveDecision.projects) {
-        i(this, 'the cd has no projects');
+        info(this, 'the cd has no projects');
         collectiveDecision.projects = [];
       }
 
       collectiveDecision.get('projects').pushObject(new_project);
 
-      // TODO αυτή τη στιγμή τα projects είναι promises. πρέπει να δω πως γίνεται να γίνονται resolved μεσω του rsvp
-    }
-  }
+      // TODO -01-
+    }, // addProject action
+
+
+    createCollectiveDecision(collectiveDecision) {
+      debug(this,'createCollectiveDecision called');
+
+      let route = this.get('target'); // the current route
+      let promisesArray = [];
+
+      collectiveDecision.save().then(function(aDecision) {
+        aDecision.get('projects').forEach(function(aProject) {
+          promisesArray.push(aProject.save());
+        });
+
+        return Ember.RSVP.all(promisesArray).then(function() {
+          route.transitionTo('collective-decisions');
+        }).catch(function() {
+          error(this, 'one of the saves failed');
+        });
+
+      });
+    } // createCollectiveDecision action
+
+  } // actions
 
 });

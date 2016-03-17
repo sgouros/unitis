@@ -28,8 +28,8 @@
 
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button class="btn btn-default" {{action 'addProject' f_CollectiveDecision}} disabled="{{unless f_CollectiveDecision.isValid 'disabled'}}">Add project</button>
-      <button type="submit" class="btn btn-default" {{action 'createCollectiveDecision' f_CollectiveDecision}} disabled="{{unless f_CollectiveDecision.isValid 'disabled'}}">{{buttonLabel}}</button>
+      <button class="btn btn-default" {{action addProjectAction f_CollectiveDecision}} disabled="{{unless f_CollectiveDecision.isValid 'disabled'}}">{{addProjectButtonLabel}}</button>
+      <button class="btn btn-default" {{action defaultAction f_CollectiveDecision}} disabled="{{unless f_CollectiveDecision.isValid 'disabled'}}">{{defaultButtonLabel}}</button>
     </div>
   </div>
 

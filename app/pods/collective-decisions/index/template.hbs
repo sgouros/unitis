@@ -2,13 +2,13 @@
 
 <div class="row">
 
-    {{#each model as |a_CollectiveDecision|}}
+    {{#each model as |aCollectiveDecision|}}
       <div class="col-md-4">
 
-        {{#collective-decision-item i_CollectiveDecision=a_CollectiveDecision}}
+        {{#collective-decision-item i_CollectiveDecision=aCollectiveDecision}}
 
-          {{#link-to 'collective-decisions.edit' a_CollectiveDecision.id class='btn btn-success btn-xs'}}edit{{/link-to}}
-          <button class="btn btn-danger btn-xs" {{action 'deleteCollectiveDecision' a_CollectiveDecision}}>delete</button>
+          {{#link-to 'collective-decisions.edit' aCollectiveDecision.id class='btn btn-success btn-xs'}}edit{{/link-to}}
+          <button class="btn btn-danger btn-xs" {{action 'deleteCollectiveDecision' aCollectiveDecision}}>delete</button>
 
         {{/collective-decision-item}}
 

@@ -1,5 +1,8 @@
 <h2>creating a new collective decision</h2>
-{{collective-decision-form f_CollectiveDecision=model buttonLabel="Create Collective Decision" action='saveCollectiveDecision' addProject=(action 'addProject') }}
-
-
- 
+{{collective-decision-form
+  f_CollectiveDecision=model
+  defaultButtonLabel="Create Collective Decision"
+  addProjectButtonLabel='Add Project'
+  defaultAction=(action 'createCollectiveDecision')
+  addProjectAction=(action 'addProject')
+}}

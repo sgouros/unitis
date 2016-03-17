@@ -16,7 +16,7 @@ export default Ember.Route.extend({
         pr.destroyRecord();
         this.controllerFor('projects').set('responseMessage', 'Project successfully deleted!');
       }
-      // TODO τα μηνύματα επιτυχούς διαγραφής πχ να είναι σε στυλ postit popup
+      // TODO -05-
     },
 
     willTransition() {
