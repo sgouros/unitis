@@ -7,10 +7,10 @@
 
   <div class="panel-body">
 
-  
-
-
-
+    {{#each i_CollectiveDecision.projects as |pr|}}
+        <p class='bold'>code:{{pr.code}}</p>
+        <p>title:{{pr.title}}</p>
+    {{/each}}
 
   </div>
 
