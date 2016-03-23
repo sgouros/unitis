@@ -32,10 +32,15 @@ export default Ember.Controller.extend({
       });
     },
 
+
+
     addProject(collectiveDecision) {
       let new_project = this.store.createRecord('project');
+
       new_project.code = 'default project code';
+
       info(this, 'project just created');
+
       if (!collectiveDecision.projects) {
         info(this, 'the cd has no projects');
         collectiveDecision.projects = [];
