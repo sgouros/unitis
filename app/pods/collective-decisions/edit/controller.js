@@ -24,6 +24,7 @@ export default Ember.Controller.extend({
 
         return Ember.RSVP.all(saveProjectPromisesArray).then(function transitionBack() {
           pc.set('responseMessage', message);// aυτό σετάρει τον collective-decisions.edit controller. Εγώ πρέπει να κοιτάω τον collective-decisions controller
+          info(this,message);
           route.transitionTo('collective-decisions');
         }).catch(function failedToEdit() {
           error(_this, 'one of the saves failed inside editCollectiveDecision');

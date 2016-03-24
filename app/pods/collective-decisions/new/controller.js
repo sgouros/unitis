@@ -3,6 +3,8 @@ import {debug,info,warn,error} from 'unitis/utils/ULogger';
 
 export default Ember.Controller.extend({
 
+parentController: Ember.inject.controller('collective-decisions'),
+
   actions: {
 
   createCollectiveDecision(collectiveDecision) {
@@ -10,18 +12,21 @@ export default Ember.Controller.extend({
 
       let route = this.get('target'); // the current route
       let message = 'CREATED collective decision with id: ' + collectiveDecision.get('id');
-      let promisesArray = [];
+      let saveProjectPromisesArray = [];
       let _this=this;
+      let pc=this.get('parentController');
 
-      collectiveDecision.save().then(function(aDecision) {
-        aDecision.get('projects').forEach(function(aProject) {
-          promisesArray.push(aProject.save());
+      collectiveDecision.save().then(function(theSavedDecision) {
+        theSavedDecision.get('projects').forEach(function addProjectsToPromiseArray(eachDecisionProject) {
+          saveProjectPromisesArray.push(eachDecisionProject.save());
         });
 
-        return Ember.RSVP.all(promisesArray).then(function() {
+        return Ember.RSVP.all(saveProjectPromisesArray).then(function transitionBack() {
+          pc.set('responseMessage', message);// aυτό σετάρει τον collective-decisions.edit controller. Εγώ πρέπει να κοιτάω τον collective-decisions controller
+          info(this,message);
           route.transitionTo('collective-decisions');
-        }).catch(function() {
-          error(this, 'one of the saves failed');
+        }).catch(function failedToCreate() {
+          error(this, 'one of the saves failed inside createCollectiveDecision');
         });
 
       });
