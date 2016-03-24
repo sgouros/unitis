@@ -1,0 +1,12 @@
+<h2>are you sure you want to delete the following collective decision?</h2>
+
+{{collective-decision-item i_CollectiveDecision = model }}
+
+<div class="form-group">
+  <div class="col-sm-offset-2 col-sm-10">
+
+    <button class="btn btn-default" {{action (action 'cancel')}}       disabled="{{unless model.isValid 'disabled'}}">cancel</button>
+    <button class="btn btn-danger"  {{action (action 'delete') model}} disabled="{{unless model.isValid 'disabled'}}">delete</button>
+
+  </div>
+</div>
