@@ -7,8 +7,8 @@
   </ul>
 </div>
 
-
-<div class="alert alert-success">{{responseMessage}}</div>
-
+{{#if responseMessage}}
+  <div class="alert alert-success">{{responseMessage}}</div>
+{{/if}}
 
 {{outlet}}
