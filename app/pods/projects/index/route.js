@@ -16,13 +16,13 @@ export default Ember.Route.extend({
         pr.destroyRecord();
         this.controllerFor('projects').set('responseMessage', 'Project successfully deleted!');
       }
-      // TODO -05-
+
     },
 
     willTransition() {
       this.controllerFor('projects').set('responseMessage', '');
     }
-  
+
   }
 
 });

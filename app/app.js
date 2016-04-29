@@ -2,6 +2,7 @@ import Ember from 'ember';
 import Resolver from './resolver';
 import loadInitializers from 'ember-load-initializers';
 import config from './config/environment';
+import {debug,info,warn,error} from 'unitis/utils/ULogger';
 
 let App;
 
@@ -13,7 +14,8 @@ App = Ember.Application.extend({
   Resolver
 });
 
+
+
 loadInitializers(App, config.modulePrefix);
 
 export default App;
-

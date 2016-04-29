@@ -7,7 +7,7 @@ function debug(callerInfo,whatToLog,message=""){
     let currentDate = '[' + d.getDate() + '.' + d.getMonth() + '.' + d.getFullYear() + '_';
     let currentTime = d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds() + '.' + d.getMilliseconds() + ']';
     let callerClass = '[' + setupCaller(callerInfo) + ']';
-    let outputFormat='color: brown; font-size:13px;';
+    let outputFormat='color: green; font-size:13px;';
 
     console.log(pre + loggerPrefix + currentDate + currentTime +  callerClass + ': ' + message + ' ' + whatToLog, outputFormat);
   }

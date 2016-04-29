@@ -12,7 +12,7 @@ export default Ember.Controller.extend({
 
 actions:{
 
-  delete(collectiveDecision){ // TODO -05-
+  delete(collectiveDecision){ 
     let responseMessage = 'DELETED collective decision with id: ' + collectiveDecision.get('id');
     collectiveDecision.destroyRecord();
     this.get('parentController').set('responseMessage', responseMessage);

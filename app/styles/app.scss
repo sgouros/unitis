@@ -30,57 +30,33 @@ html {
 
 
 ///////////////////////////////////////////////////////////////////////////////////////
-.popup{
-	margin-top:-800px;
-	margin-right:20px;
-	transition:all 1s ease, opacity 1s ease .5s;
-	opacity:0;
-	float:right;
-	width:200px;
-	height:60px;
-	border-bottom:1px solid #ccc;
-	border-radius:4px;
-	background:linear-gradient(top, rgba(247,247,247,1) 0%,rgba(229,229,229,1) 100%);
-	line-height:0;
-	box-shadow:0px 3px 5px rgba(0,0,0,.2);
-	position:relative;
-	z-index:0;
-}
-
-.popup p {
-  margin:-30px 60px;
-  display:block;
-  width:200px;
-  height:80px;
-  color:#999;
-  text-shadow:0px -1px 1px #fff,0px 1px 1px #fff;
-}
-
-.popup:before{
-  content:'fff';
-  display:block;
-  width:100%;
-  margin:8px;
-  height:40%;
-  background:url('http://lab.web-gate.fr/images/skype.png')no-repeat bottom;
-  background-position:1% 1%;
-  background-size:20%;
-  padding:10px;
-}
-
-.popup:after{
-	z-index:2;
-	position:absolute;
-	margin-top:-80px;
-	content:'';
-	display:block;
-	width:200px;
-	height:60px;
-	background-image:linear-gradient(315deg,rgba(255,255,255,.2)49%,rgba(255,255,255,.0)50%,rgba(255,255,255,.0));
-  border-radius:10px;
-}
-
-.pop:checked ~ label .popup{
-	margin-top:-505px;
-	opacity:1;
-}
+#note {
+        font-size: 12px;
+        font-weight: bold;
+        position: fixed;
+        z-index: 6001;
+        bottom: 20px;
+        left: 20px;
+        width: 260px;
+	      height: 70px;
+        padding: 5px;
+        background-color:rgba(250, 250, 210,0.80);
+        border-bottom:1px solid #ccc;
+	      border-radius:4px;
+	      box-shadow:0px 3px 5px rgba(0,0,0,.2);
+        text-align: center;
+        line-height: 2.5;
+        overflow: hidden;
+        -webkit-transform: translateY(100px);
+        -webkit-animation: noteSlideDown 8s 0.8s 1 ease forwards;
+        -moz-transform:    translateY(100px);
+        -moz-animation:    noteSlideDown 8s 0.8s 1 ease forwards;
+    }
+    @-webkit-keyframes noteSlideDown {
+        0%, 100% { -webkit-transform: translateY(100px); }
+        10%, 90% { -webkit-transform: translateY(0px); }
+    }
+    @-moz-keyframes noteSlideDown {
+        0%, 100% { -moz-transform: translateY(100px); }
+        10%, 90% { -moz-transform: translateY(0px); }
+    }
