@@ -30,33 +30,50 @@ html {
 
 
 ///////////////////////////////////////////////////////////////////////////////////////
-#note {
-        font-size: 12px;
-        font-weight: bold;
-        position: fixed;
-        z-index: 6001;
-        bottom: 20px;
-        left: 20px;
-        width: 260px;
-	      height: 70px;
-        padding: 5px;
-        background-color:rgba(250, 250, 210,0.80);
-        border-bottom:1px solid #ccc;
-	      border-radius:4px;
-	      box-shadow:0px 3px 5px rgba(0,0,0,.2);
-        text-align: center;
-        line-height: 2.5;
-        overflow: hidden;
-        -webkit-transform: translateY(100px);
-        -webkit-animation: noteSlideDown 8s 0.8s 1 ease forwards;
-        -moz-transform:    translateY(100px);
-        -moz-animation:    noteSlideDown 8s 0.8s 1 ease forwards;
-    }
-    @-webkit-keyframes noteSlideDown {
-        0%, 100% { -webkit-transform: translateY(100px); }
-        10%, 90% { -webkit-transform: translateY(0px); }
-    }
-    @-moz-keyframes noteSlideDown {
-        0%, 100% { -moz-transform: translateY(100px); }
-        10%, 90% { -moz-transform: translateY(0px); }
-    }
+#popupMessage {
+  font-size: 12px;
+  font-weight: bold;
+  color:#666;
+  position: fixed;
+  z-index: 6001;
+  bottom: 20px;
+  left: 20px;
+  width: 260px;
+	height: 70px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  background-color:rgba(250, 250, 220,0.80);
+  border-bottom:1px solid #ccc;
+	border-radius:4px;
+	box-shadow:0px 3px 5px rgba(0,0,0,.2);
+//  text-align: center;
+  line-height: 2.5;
+  overflow: hidden;
+  -webkit-transform: translateY(100px);
+  -webkit-animation: popupMessageSlideIn 8s 0.8s 1 ease forwards;
+  -moz-transform:    translateY(100px);
+  -moz-animation:    popupMessageSlideIn 8s 0.8s 1 ease forwards;
+}
+@-webkit-keyframes popupMessageSlideIn {
+  0%, 100% { -webkit-transform: translateY(100px); }
+  10%, 90% { -webkit-transform: translateY(0px); }
+}
+@-moz-keyframes popupMessageSlideIn {
+  0%, 100% { -moz-transform: translateY(100px); }
+  10%, 90% { -moz-transform: translateY(0px); }
+}
+.popupMessageDismiss {
+  position:absolute;
+  font-size: 10px;
+  font-weight: normal;
+  color: #666;
+  text-align: center;
+  right:5px;
+    top:3px;
+//  bottom: 5px;
+//  height:30px;
+//  width: 260px;
+//  right: 7px;
+}

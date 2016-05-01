@@ -8,7 +8,7 @@
 </div>
 
 {{#if responseMessage}}
-  <div id="note"> {{responseMessage}} </div>
+    {{#popup-message}}{{responseMessage}}{{/popup-message}}
 {{/if}}
 
 {{outlet}}
