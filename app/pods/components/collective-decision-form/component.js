@@ -1,6 +1,6 @@
 import Ember from 'ember';
-import DS from 'ember-data';
-import {debug,info,warn,error} from 'unitis/utils/ULogger';
+// import DS from 'ember-data';
+
 
 export default Ember.Component.extend({
 

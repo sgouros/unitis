@@ -1,5 +1,6 @@
 import Ember from 'ember';
 
+
 export default Ember.Route.extend({
 
   model(params) {
@@ -9,6 +10,16 @@ export default Ember.Route.extend({
   actions: {
 
     saveProject(pr) {
+
+
+      // debug(this,'editCollectiveDecision called');
+      // debugger;
+      // let route   = this.get('target');
+      // let route1  = unitis.__container__.lookup('router:main');
+      // debug(this,route);
+      // debug(this,route1);
+
+
       pr.save().then(() => {
         this.controllerFor('projects').set('responseMessage', 'Project decision successfully edited!');
         this.transitionTo('projects');

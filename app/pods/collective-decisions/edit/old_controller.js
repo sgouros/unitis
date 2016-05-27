@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import {debug,info,warn,error} from 'unitis/utils/ULogger';
+import * as log from 'unitis/utils/ULogger';
 
 export default Ember.Controller.extend({
 
@@ -8,7 +8,7 @@ export default Ember.Controller.extend({
   actions: {
 
     editCollectiveDecision(collectiveDecision) { //ερχεται από το collective-decision-item component
-      debug(this,'editCollectiveDecision called');
+      log.debug(this,'editCollectiveDecision called');
 
       let route   = this.get('target');
       let message = 'EDITED collective decision with id: ' + collectiveDecision.get('id');
@@ -26,7 +26,7 @@ export default Ember.Controller.extend({
           pc.set('responseMessage', message);// aυτό σετάρει τον collective-decisions.edit controller. Εγώ πρέπει να κοιτάω τον collective-decisions controller
           route.transitionTo('collective-decisions');
         }).catch(function failedToEdit() {
-          error(_this, 'one of the saves failed inside editCollectiveDecision');
+          log.error(_this, 'one of the saves failed inside editCollectiveDecision');
         });
 
       });
@@ -39,15 +39,15 @@ export default Ember.Controller.extend({
 
       new_project.code = 'default project code';
 
-      info(this, 'project just created');
+      log.info(this, 'project just created');
 
       if (!collectiveDecision.projects) {
-        info(this, 'the cd has no projects');
+        log.info(this, 'the cd has no projects');
         collectiveDecision.projects = [];
       }
 
       collectiveDecision.get('projects').pushObject(new_project);
-        debug(this,'pushing inside addProject of edit');
+        log.debug(this,'pushing inside addProject of edit');
 
       // TODO -01-
     }

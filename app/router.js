@@ -1,12 +1,12 @@
 import Ember from 'ember';
 import config from './config/environment';
 
+
 const Router = Ember.Router.extend({
   location: config.locationType
 });
 
 Router.map(function() {
-
   this.route('collective-decisions', function() {
     this.route('index');
     this.route('new');
@@ -14,7 +14,7 @@ Router.map(function() {
     this.route('delete', {path:'/:collective_decision_id/delete'});
   });
 
-
+console.log(Router.map.toString());
   this.route('projects', function() {
     this.route('index');
     this.route('new');

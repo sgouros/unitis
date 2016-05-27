@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import {debug,info,warn,error} from 'unitis/utils/ULogger';
+import * as log from 'unitis/utils/ULogger';
 
 export default Ember.Controller.extend({
 
@@ -8,12 +8,12 @@ parentController: Ember.inject.controller('collective-decisions'),
   actions: {
 
   createCollectiveDecision(collectiveDecision) {
-      debug(this,'createCollectiveDecision called');
+      log.debug(this,'createCollectiveDecision called');
 
       let route = this.get('target'); // the current route
       let message = 'CREATED collective decision with id: ' + collectiveDecision.get('id');
       let saveProjectPromisesArray = [];
-      let _this=this;
+      
       let pc=this.get('parentController');
 
       collectiveDecision.save().then(function(theSavedDecision) {
@@ -23,10 +23,10 @@ parentController: Ember.inject.controller('collective-decisions'),
 
         return Ember.RSVP.all(saveProjectPromisesArray).then(function transitionBack() {
           pc.set('responseMessage', message);// aυτό σετάρει τον collective-decisions.edit controller. Εγώ πρέπει να κοιτάω τον collective-decisions controller
-          info(this,message);
+          log.info(this,message);
           route.transitionTo('collective-decisions');
         }).catch(function failedToCreate() {
-          error(this, 'one of the saves failed inside createCollectiveDecision');
+          log.error(this, 'one of the saves failed inside createCollectiveDecision');
         });
 
       });
@@ -37,10 +37,10 @@ parentController: Ember.inject.controller('collective-decisions'),
 
       new_project.code = 'default project code';
 
-      info(this, 'project just created');
+      log.info(this, 'project just created');
 
       if (!collectiveDecision.projects) {
-        info(this, 'the cd has no projects');
+        log.info(this, 'the cd has no projects');
         collectiveDecision.projects = [];
       }
 

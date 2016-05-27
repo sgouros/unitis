@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import {debug,info,warn,error} from 'unitis/utils/ULogger';
+import * as log from 'unitis/utils/ULogger';
 
 export default Ember.Controller.extend({
 
@@ -12,11 +12,11 @@ export default Ember.Controller.extend({
 
 actions:{
 
-  delete(collectiveDecision){ 
+  delete(collectiveDecision){
     let responseMessage = 'DELETED collective decision with id: ' + collectiveDecision.get('id');
     collectiveDecision.destroyRecord();
     this.get('parentController').set('responseMessage', responseMessage);
-    info(this, responseMessage);
+    log.info(this, responseMessage);
     this.getCollectiveDecisionsRoute().transitionTo('collective-decisions');
   },
 

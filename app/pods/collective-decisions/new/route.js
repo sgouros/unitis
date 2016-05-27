@@ -1,12 +1,7 @@
 //app/pods/collective-decisions/new/route.js
 
 import Ember from 'ember';
-import {
-  debug,
-  info,
-  warn,
-  error
-} from 'unitis/utils/ULogger';
+
 
 export default Ember.Route.extend({
 
@@ -18,7 +13,7 @@ export default Ember.Route.extend({
 
   actions: {
 
-    
+
 
     willTransition() { // αν φύγουμε από τη σελίδα χωρίς να γράψουμε τίποτε, κάνε reset
       let model = this.controller.get('model');
