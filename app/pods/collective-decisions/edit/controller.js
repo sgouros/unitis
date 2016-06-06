@@ -5,31 +5,35 @@ export default Ember.Controller.extend({
 
   parentController: Ember.inject.controller('collective-decisions'),
 
+  saveAllChildProjects(parentCD){
+    log.info(this,"inside saveAllProjects");
+    log.info(this,parentCD);
+    return parentCD.saveAllProjects();
+  },
+
+// είσαι εδώ***************************
+  failedToEdit(error) {
+     log.error(this, 'one of the project saves failed inside editCollectiveDecision with error code:' + error);
+  },
+
+  // transitionBack() {
+  // let route   = this.get('target');
+  // let message = 'EDITED collective decision with id: ' + collectiveDecision.get('id');
+  // this.get('parentController').set('responseMessage', message);// aυτό σετάρει τον collective-decisions controller
+  //   log.info(this,message);
+  //   route.transitionTo('collective-decisions');
+  // },
+
   actions: {
 
-    editCollectiveDecision(collectiveDecision) { //ερχεται από το collective-decision-item component
-      let route   = this.get('target');
-      let message = 'EDITED collective decision with id: ' + collectiveDecision.get('id');
-      let saveProjectPromisesArray = [];
-      let _this=this;
-      let pc=this.get('parentController');
-
 // TODO #11
-      collectiveDecision.save().then((theSavedDecision) => {
-        theSavedDecision.get('projects').forEach(function addProjectsToPromiseArray(eachDecisionProject) {
-          saveProjectPromisesArray.push(eachDecisionProject.save());
-        });
-
-        return Ember.RSVP.all(saveProjectPromisesArray).then(function transitionBack() {
-          pc.set('responseMessage', message);// aυτό σετάρει τον collective-decisions.edit controller. Εγώ πρέπει να κοιτάω τον collective-decisions controller
-          log.info(this,message);
-          route.transitionTo('collective-decisions');
-        }).catch(function failedToEdit() {
-          log.error(_this, 'one of the saves failed inside editCollectiveDecision');
-        });
-
-      });
+    editCollectiveDecision(collectiveDecision) { //ερχεται από το collective-decision-item component
+      collectiveDecision.save()
+        .then( savedCD => savedCD.saveAllProjects() )
+        .then( () => this.transitionBack)
+        .catch((error) => this.failedToEdit(error));)
     },
+
 
     addProject(collectiveDecision) {
       let new_project = this.store.createRecord('project');
