@@ -9,20 +9,19 @@ export default Ember.Route.extend({
 
   actions: {
 
-    deleteProject(pr) {
+    deleteProject(project) {
       let confirmation = confirm('Are you sure you want to delete this?');
 
       if (confirmation) {
-        pr.destroyRecord();
-        this.controllerFor('projects').set('responseMessage', 'Project successfully deleted!');
+        project.destroyRecord();
+        this.controllerFor('projects').setResponseMessage('Project successfully deleted!');
       }
 
     },
 
     willTransition() {
-      this.controllerFor('projects').set('responseMessage', '');
+      this.controllerFor('projects').resetResponseMessage();
     }
-
   }
 
 });

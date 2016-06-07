@@ -1,13 +1,14 @@
 <div class="panel panel-default project">
 
   <div class="panel-heading">
-    <h3 class="panel-title">{{i_Project.code}}</h3>
+    <h3 class="panel-title">{{project.code}}</h3>
   </div>
 
   <div class="panel-body">
-    <p>{{i_Project.title}}</p>
-    <p>{{i_Project.collectiveDecisionId}}</p>
-    <p>{{i_Project.collectiveDecision}}</p>
+    <p>{{project.title}}</p>
+    {{debugger}}
+    <p>aa{{project.collectiveDecisionId}}</p>
+    <p>hhh{{ project.getCD }}</p>
   </div>
 
   <div class="panel-footer text-right">
