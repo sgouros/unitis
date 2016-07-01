@@ -8,9 +8,15 @@ export default DS.Model.extend({
 
   collectiveDecision: DS.belongsTo('collective-decision', {async: true} ),
 
-  getCD: function(){
-    return get('collectiveDecision');
-  }
 
+  trace(){
+    let msg="\n";
+    msg+="  id: "     + this.get("id");
+    msg+="\n";
+    msg+="  code: "   + this.get("code");
+    msg+="\n";
+    msg+="  title: "  + this.get("title");
+    return msg;
+  }
 
 });

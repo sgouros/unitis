@@ -8,9 +8,9 @@ export default Ember.Controller.extend({
   actions: {
 
     editCollectiveDecision(collectiveDecision) { //ερχεται από το collective-decision-item component
-      collectiveDecision.save() // first, save the collective decision
+      collectiveDecision.save() // first, save the collective decision along with projects
         .then( () => {          // then transition
-          let responseMessage = 'EDITED collective decision with id: ' + collectiveDecision.get('id');
+          let responseMessage = 'EDITED collective decision:' + collectiveDecision.trace();
           log.info(this,responseMessage);
           this.get('parentController').set('responseMessage', responseMessage);// aυτό σετάρει τον collective-decisions controller
           return this.get('target').transitionTo('collective-decisions');

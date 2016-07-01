@@ -8,47 +8,21 @@ parentController: Ember.inject.controller('collective-decisions'),
   actions: {
 
   createCollectiveDecision(collectiveDecision) {
-      log.debug(this,'createCollectiveDecision called');
-
-      let route = this.get('target'); // the current route
-      let message = 'CREATED collective decision with id: ' + collectiveDecision.get('id');
-      let saveProjectPromisesArray = [];
-      
-      let pc=this.get('parentController');
-
-      collectiveDecision.save().then(function(theSavedDecision) {
-        theSavedDecision.get('projects').forEach(function addProjectsToPromiseArray(eachDecisionProject) {
-          saveProjectPromisesArray.push(eachDecisionProject.save());
-        });
-
-        return Ember.RSVP.all(saveProjectPromisesArray).then(function transitionBack() {
-          pc.set('responseMessage', message);// aυτό σετάρει τον collective-decisions.edit controller. Εγώ πρέπει να κοιτάω τον collective-decisions controller
-          log.info(this,message);
-          route.transitionTo('collective-decisions');
-        }).catch(function failedToCreate() {
-          log.error(this, 'one of the saves failed inside createCollectiveDecision');
-        });
-
+    collectiveDecision.save() // first, save the collective decision along with projects
+      .then( () => {          // then transition
+        let responseMessage = 'CREATED collective decision:' + collectiveDecision.trace();
+        log.info(this,responseMessage);
+        this.get('parentController').set('responseMessage', responseMessage);// aυτό σετάρει τον collective-decisions controller
+        return this.get('target').transitionTo('collective-decisions');
+      })
+      .catch( (theError) => { // finally catch and log errors
+        log.error(this, 'one of the project saves failed inside createCollectiveDecision with error code:' + theError);
       });
     }, // createCollectiveDecision action
 
     addProject(collectiveDecision) {
-      let new_project = this.store.createRecord('project');
-
-      new_project.code = 'default project code';
-
-      log.info(this, 'project just created');
-
-      if (!collectiveDecision.projects) {
-        log.info(this, 'the cd has no projects');
-        collectiveDecision.projects = [];
-      }
-
-      collectiveDecision.get('projects').pushObject(new_project);
-
-      // TODO -01-
+      collectiveDecision.addProject(); // delegate to collective decision
     } // addProject action
-
 
   } // actions
 

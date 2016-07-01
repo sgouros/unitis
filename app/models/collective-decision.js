@@ -1,7 +1,7 @@
 // models/collective-decision.js
 import Ember from 'ember';
 import DS from 'ember-data';
-import * as log from 'unitis/utils/ULogger';
+// import * as log from 'unitis/utils/ULogger';
 
 export default DS.Model.extend({
   code       : DS.attr('string'),
@@ -13,7 +13,8 @@ export default DS.Model.extend({
     if (!this.projects){
       this.projects= [];
     }
-  }, // endof init
+  },
+
 
   // override save() in order to automatically save projects along with the collective decision
   save(){
@@ -21,9 +22,32 @@ export default DS.Model.extend({
       .then( savedCD => savedCD._saveProjects() ); // then persist the child projects
   },
 
+
   // add an empty child project
   addProject(){
     return this.get('projects').pushObject(this.store.createRecord('project'));
+  },
+
+  trace(){
+    let msg="\n";
+    msg+="  id: "   +this.get("id");
+    msg+="\n";
+    msg+="  code: " +this.get("code");
+    msg+="\n";
+    msg+="  description: "  +this.get("description");
+    msg+="\n\n";
+
+    let projects = this.get('projects');
+    
+    if (projects.get('length') > 0){
+      msg+="  projects: ";
+      this.get('projects').forEach( function(project){
+        msg+= "\n" + project.trace();
+      });
+    } else {
+      msg+="  no projects";
+    }
+    return msg;
   },
 
   // PRIVATE:
